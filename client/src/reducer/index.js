@@ -29,12 +29,6 @@ function rootReducer(state = initialState, action) {
                 pokemons: action.payload
             }
 
-            case 'SET_DETAIL_POKEMON':
-                return{
-                    ...state,
-                    detail: action.payload
-                  }
-
 
         case 'POST_POKEMON':
             return {

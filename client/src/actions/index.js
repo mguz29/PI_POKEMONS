@@ -25,13 +25,7 @@ export function getDeatil(id){
     }
 }
 
-export function SetPokemonDetail() {
-    return{
-        type:'SET_DETAIL_POKEMON',
-        payload:{}
-    }
-    
-} 
+
 
 
 export function filterCreated(payload) {
@@ -62,10 +56,15 @@ export function getNamePokemons(name) {
     return async function (dispatch) {
         try {
             var json = await axios.get("/pokemonss?name=" + name)
-            return dispatch({
+            if (json?.data) {
+                 return dispatch({
                 type:"GET_NAME_POKEMONS",
                 payload:json.data
             })
+            }else{
+
+            }
+           
         } catch (error) {
             console.log(error)
             
@@ -103,7 +102,7 @@ export function filterType2(payload){
 
 export function postPokemon(payload) {
     return async function (dispatch) {
-        const response = (await (axios.post('http://localhost:3001/pokemon',payload)))
+        const response = (await (axios.post('/pokemon',payload)))
         console.log(response)
         return response
     }
