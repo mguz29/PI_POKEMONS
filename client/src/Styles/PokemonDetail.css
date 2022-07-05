@@ -1,0 +1,54 @@
+.Tarjeta{
+    display: inline-flex;
+    margin: 4%;
+    background: linear-gradient(to top, white, red);
+    border-radius: 20px;
+  
+}
+.texto{
+    margin: 15px;;
+}
+.informacios{
+    display: inline-flex;
+}
+.image{
+    display: flex;
+    margin: 10px;
+    align-items: center;
+}
+.nav{
+    display: flex;
+    justify-content: space-around;
+    background-color: rgb(255, 0, 0);
+    box-shadow:rgb(0, 0, 0) 0px 3px;
+    height: 70px;
+    align-items: center;
+}
+.Button{
+    margin: 10px;
+    box-shadow:rgb(153 153 153) 0px 5px;
+    padding: 5px;
+    border-radius: 10px;
+    background-color: white;
+    text-decoration: none;
+    font-size: 15px;
+    margin-bottom: 10px;
+}
+.images{
+    width: 42px;
+    align-items: center;
+}
+.imagess{
+    width: 60px;
+    align-items: center;
+
+}
+.Tarjetita{
+    display: table;
+}
+.renderizado{
+    background-image: url('https://fondosmil.com/fondo/14759.jpg');
+    background-size: 100%;
+    height: 800px;
+  
+}

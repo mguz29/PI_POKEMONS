@@ -1,0 +1,111 @@
+.home-container{
+    /* background-image: url('https://pi-dogs-brown.vercel.app/static/media/FONDO.efc82cc9.png'); */
+      background-image:url('../images/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.jpg') ; 
+     background-size: 100% 100%; 
+
+    /* background-image:url("https://previews.123rf.com/images/tigatelu/tigatelu1701/tigatelu170100016/69363160-ilustraci%C3%B3n-de-conjunto-de-divertidos-perros-de-dibujos-animados.jpg") ; */
+    /* background-image : url("https://st2.depositphotos.com/3213441/12022/v/600/depositphotos_120226648-stock-illustration-pokemon-go-pokeball-seamless-texture.jpg") ; */
+ }
+/* crear clase body que envuelva el componente */
+ 
+ .Cardshijo{
+     display: grid;
+     height: 650px;
+     width: 100%;
+     margin-bottom: 1%;
+     gap: 1%;
+     grid-template-columns: repeat(6, 1fr);
+  
+    
+ }
+.card{
+    border-width: 10px;
+    border-width: 1px;
+    margin: 5px;
+    border-radius: 5px; 
+    background: linear-gradient(to bottom, white, red);
+    margin-bottom: 5px;
+    text-decoration: none;
+    box-shadow: rgb(0 0 0 / 40%) 4px 4px 4px 2px;
+    border-radius: 30px;
+    width: 230px;
+    height: 300px;
+
+ }
+ .card:hover {
+    backdrop-filter: blur(10px);
+    transform: scale(1.1);
+    background-color: rgb(255, 255, 255);
+  } 
+  
+ .Cards{
+     display: flex;
+     justify-content: space-around;
+     grid-template-columns: repeat(4, 1fr);
+     margin:30px;
+ }
+ .cardhijo{
+     text-decoration: none;
+     color: black;
+     cursor: pointer;
+ }
+ 
+ .filtrosNav{
+     display: flex;
+     justify-content:left;
+     background-color: rgb(255, 0, 0);
+     box-shadow:rgb(0, 0, 0) 0px 3px;
+     height: 70px;
+     align-items: center;
+ 
+ }
+ .creaPokemon{
+     margin: 10px;
+     box-shadow:rgb(153 153 153) 0px 5px;
+     padding: 5px;
+     border-radius: 10px;
+     background-color: white;
+     text-decoration: none;
+     font-size: 15px;
+     margin-bottom: 10px;
+ }
+ .creapokemon{
+     text-decoration: none;
+     color: black;
+     cursor: pointer
+ }
+ .refresh{
+     margin: 10px;
+     box-shadow:rgb(153 153 153) 0px 5px;
+     padding: 5px;
+     border-radius: 10px;
+     background-color:white;
+     border-style: none;
+     cursor: pointer
+ }
+ .ordenNombre{
+     margin: 10px;
+     box-shadow:rgb(153 153 153) 0px 5px;
+     padding: 5px;
+     border-radius: 10px;
+     background-color: white;
+     border-style: none;
+     cursor: pointer
+ }
+ .ordenPeso{
+     margin: 10px;
+     box-shadow:rgb(153 153 153) 0px 5px;
+     padding: 5px;
+     border-radius: 10px;
+     background-color: white;
+     border-style: none;
+     cursor: pointer
+ }
+ .paginado{
+     padding: 4px;
+     background-color:red;
+     /* border-style: none; */
+ }
+
+
+ 

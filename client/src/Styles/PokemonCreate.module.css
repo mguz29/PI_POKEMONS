@@ -1,0 +1,97 @@
+.container{
+    background-image: url('../images/566522.jpg'); 
+   /* background-image: url('https://images3.alphacoders.com/273/273289.jpg'); */
+   height: 700px;
+   background-size: 100% 100%;
+}
+.alturapeso{
+   display: inline-flex;
+   margin: 20px;
+}
+.hpspeed{
+   display: flex;
+   justify-content: center;
+   margin: 20px;
+}
+.defenseatack{
+   display: flex;
+   justify-content: center;
+   margin: 20px;
+}
+.types{
+   display: flex;
+   justify-content: center;
+   margin: 20px;
+}
+.imagessss{
+   display: flow-root;
+   margin: 20px;
+}
+.hp{
+   margin: 10px;
+}
+.speed{
+   margin: 10px;
+}
+.defense{
+   margin: 10px;
+}
+.attack{
+   margin: 10px;
+}
+.height{
+   margin: 10px;
+}
+.weight{
+   margin: 10px;
+}
+.typeprimary{
+   margin: 10px;
+}
+.typesecond{
+   margin: 10px;
+   
+}
+.formulario{
+   /* background: linear-gradient(to bottom, rgb(247, 191, 191), rgb(255, 0, 0)); */
+   background: linear-gradient(to bottom, rgb(104, 104, 104), rgb(222, 222, 222));
+   width: 500px;
+   border-radius: 20px;
+   margin-left: 50px;
+
+}
+.inputweight{
+   border-radius: 20px;
+}
+.inputheight{
+   border-radius: 20px;
+}
+.inputname{
+   border-radius: 20px;
+}
+.inputTypePrimary{
+   border-radius: 20px;
+}
+.iboton{
+   margin: 10px;
+   border-radius: 20px;
+
+}
+.nav{
+   background: linear-gradient(to top, rgb(247, 191, 191), rgb(255, 0, 0));
+   box-shadow:rgb(0, 0, 0) 0px 3px;
+   height: 70px;
+   align-items: center;
+}
+.navBo{
+   margin: 10px;
+   box-shadow:rgb(153 153 153) 0px 5px;
+   padding: 5px;
+   border-radius: 10px;
+   background-color:white;
+   border-style: none;
+   cursor: pointer;
+   width: 80px;
+   margin-top: 20px;
+
+}

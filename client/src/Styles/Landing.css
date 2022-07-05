@@ -1,0 +1,44 @@
+.container-Landing {
+    background-attachment: fixed;
+    background-image: url("../images/1366_2000.jpeg");
+    background-repeat: no-repeat;
+    background-size: 100% 100%;
+    position: relative;
+    overflow-y: hidden;
+    height: 900px;
+}
+
+.botoningresar {
+    margin-top: 250px;
+    width: 350px;
+    height: auto;
+    animation-name: rotate;
+    animation-duration: 4.0s;
+    animation-iteration-count: infinite;
+
+}
+
+.h1 {
+    margin-top: 0px;
+    margin-left: 700px;
+    width: 350px;
+    height: auto;
+    animation-name: rotate;
+    animation-duration: 4.0s;
+    animation-iteration-count: infinite;
+    color: yellow;
+
+}
+
+@keyframes rotate {
+    50% {
+        width: 400px;
+        height: auto;
+    }
+
+    50% {
+        width: 500px;
+        height: auto;
+    }
+}
+

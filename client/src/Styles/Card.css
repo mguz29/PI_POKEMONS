@@ -1,0 +1,40 @@
+.divimagen{
+    width: 120px;
+    height: 110px;
+    border-radius: 30px;
+    margin-top: 20px;
+    margin-left: 15px;
+    
+}
+
+.divnombre{
+    text-decoration: none;
+}
+.nombre{
+    margin: 2px;
+    text-decoration: none;
+}
+.Types{
+    margin: 5px;
+    background-color:#fff ;
+    margin: 7px;
+    padding: 7px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+.peso{
+    margin: 5px;
+    background-color:#fff ;
+    margin: 7px;
+    padding: 7px;
+    border-radius: 10px;
+}
+
+.atack{
+    margin: 5px;
+    background-color:#fff ;
+    margin: 7px;
+    padding: 7px;
+    border-radius: 10px;
+    font-weight: bold;
+}
