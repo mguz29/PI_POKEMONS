@@ -8,24 +8,27 @@ import Paginado from "./Paginado";
 import '../Styles/home.css'
 import SearchBar from "./SearchBar";
 import Loading from "./Loading";
-
+import Errores from "./Errores";
 
 
 export default function Home() {
 
     const dispatch = useDispatch()
     const AllPokemons = useSelector((state) => state.pokemons)
-    const Types = useSelector((state) => state.types)
+    console.log(AllPokemons)
 
+    const Types = useSelector((state) => state.types)
+  
     const [attack, setAttack] = useState('')
     const [order, setOrden] = useState('')
+
     const [currentPage, setCurrentPage] = useState(1) // estado local, inicia siempre en la pagina uno
-    const [pokemonsPerPage] = useState(12) // estado local, me piden 15 videojuegos por pagina
-    const indexOfLastPokemon = currentPage * pokemonsPerPage // indice del ultimo personaje: pagina actual * cantidad de personajes por pagina / 15
-    const indexOfFirstPokemon = indexOfLastPokemon - pokemonsPerPage // indice del primer personaje: indice del ultimo - cantidad de personajes por pagina / 0
+    const [pokemonsPerPage] = useState(12) // estado local, me piden 15 pokemons por pagina
+    const indexOfLastPokemon = currentPage * pokemonsPerPage // indice del ultimo pokemon: pagina actual * cantidad de pokemonss por pagina / 15
+    const indexOfFirstPokemon = indexOfLastPokemon - pokemonsPerPage // indice del primer pokemon: indice del ultimo - cantidad de pokemons por pagina / 0
     const currentPokemons = AllPokemons.slice(indexOfFirstPokemon, indexOfLastPokemon)
     const [loading, setLoading] = useState(true);
-   
+
 
 
     const paginado = (pageNumber) => {
@@ -50,14 +53,14 @@ export default function Home() {
     function handleSortAttack(e) {
         e.preventDefault();
         dispatch(orderByAttack(e.target.value))
-        setCurrentPage(1);
         setAttack(`Ordenado ${e.target.value}`)
+        setCurrentPage(1);
     }
 
-    function handleClick(e) {
-        e.preventDefault()
-        dispatch(getPokemons())
-    }
+    // function handleClick(e) {
+    //     e.preventDefault()
+    //     dispatch(getPokemons())      
+    // }
 
     function handleFilterCreated(e) {
         dispatch(filterCreated(e.target.value))
@@ -77,11 +80,10 @@ export default function Home() {
         <div className="home-container">
             <div>
 
-                <div className="filtrosNav">
+                <div className="filtrosNav" >
 
                     <div className="creaPokemon"><Link to='/Pokemon' className="creapokemon">Crear Pokemon</Link></div>
-
-                    <button className="refresh" onClick={(e) => handleClick(e)}>Refresh</button>
+                    {/* <button className="refresh" onClick={(e) => handleClick(e)}>Refresh</button> */}
 
                     <select className="ordenNombre" onChange={e => handleSort(e)} >
                         <option hidden>Ordenar por Nombre</option>
@@ -95,12 +97,11 @@ export default function Home() {
                         <option value='Existente'>Existente</option>
                     </select>
 
-
                     <select className="ordenPeso" onChange={e => handleFilterType(e)}>
                         <option hidden>Ordenar por Primer Tipo</option>
                         <option value="All">All</option>
                         {Types.map((typ) => (
-                            <option value={typ.name}>{typ.name}</option>
+                            <option key={typ.name} value={typ.name} >{typ.name}</option>
                         ))}
                     </select>
 
@@ -108,9 +109,8 @@ export default function Home() {
                         <option hidden>Ordenar por Segudo Tipo</option>
                         <option value="All">All</option>
                         {Types.map((typ) => (
-                            <option value={typ.name}>{typ.name}</option>
+                            <option key={typ.id} value={typ.name} >{typ.name}</option>
                         ))}
-                       
                     </select>
 
                     <select className="ordenPeso" onChange={e => handleSortAttack(e)} >
@@ -119,40 +119,39 @@ export default function Home() {
                         <option value='Attack +'>Attack +</option>
                         <option value='Attack -'>Attack -</option>
                     </select>
-
                     <SearchBar
                         setCurrentPage={setCurrentPage}
                     />
-
-
                 </div>
                 <div className="Cards">
                     <div className="Cardshijo">
                         {
-                        AllPokemons.length !== 0 ?
-                         currentPokemons?.map((el) => {
-                            console.log(currentPokemons)
-                            return (
-                                <div className="card">
-                                    <div className="cardhijo">
-                                        <Card
-                                            key={el.id}
-                                            id={el.id}
-                                            attack={el.attack}
-                                            name={el.name}
-                                            image={el.image}
-                                            //  types={ el.types[0].length ?  el.types : el.types.map(c=>c.name) }
-                                            TypePrimary={el.TypePrimary}
-                                            TypeSecond={el.TypeSecond}
-                                        />
-                                    </div>
-                                </div>
-                            )
-                        }) : <Loading setLoading={setLoading}/>
-                      
+                            //AllPokemons[0] !== 'no' ?
+                            // AllPokemons.length !== 0 ?
+                            // AllPokemons[0] !== 'no' ? 
+                             AllPokemons.length !== 0 ? AllPokemons[0]?.no ? <Errores></Errores> :
+                                currentPokemons?.map((el) => {
+                                    console.log(currentPokemons)
+                                    return (
+                                        <div className="card">
+                                            <div className="cardhijo">
+                                                <Card
+                                                    key={el.id}
+                                                    id={el.id}
+                                                    attack={el.attack}
+                                                    name={el.name}
+                                                    image={el.image}
+                                                    TypePrimary={el.TypePrimary}
+                                                    TypeSecond={el.TypeSecond}
+                                                />
+                                            </div>
+                                        </div>
+                                    )
+                                })//: <Loading setLoading={setLoading} /> 
+                               : <Loading setLoading={setLoading} /> 
+                        //   : AllPokemons[0]?.no ?  'No se econtro nada'
                         }
-                        
-                        
+                          
                     </div>
                 </div>
 

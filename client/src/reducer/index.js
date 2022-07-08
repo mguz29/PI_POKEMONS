@@ -1,18 +1,30 @@
 const initialState = {
+    loading: true,
     types: [],
     pokemons: [],
     allPokemons: [],
-    detail: []
+    detail: [],
+    typefilter:[]
 
 }
 
 function rootReducer(state = initialState, action) {
     switch (action.type) {
+
+
+        case "CHANGE_LOADING":
+            return {
+                pokemons: [],
+                loading: true,
+                allPokemons: [],
+            };
+
         case 'GET_POKEMONS':
             return {
                 ...state,
                 pokemons: action.payload,
-                allPokemons: action.payload
+                allPokemons: action.payload,
+                loading: false,
             }
 
 
@@ -21,6 +33,13 @@ function rootReducer(state = initialState, action) {
                 ...state,
                 detail: action.payload
             }
+
+            case 'SET_DETAIL_POKEMON':
+                return{
+                    ...state,
+                    detail: action.payload
+                  }
+
 
 
         case 'GET_NAME_POKEMONS':
@@ -43,33 +62,15 @@ function rootReducer(state = initialState, action) {
 
             }
 
-
-        // case 'FILTER_TYPE':
-        //      const status = state.allPokemons
-        //     const typeFilter = status.filter(t=> t.types === action.payload)
-
-        //     return {
-        //         ...state,
-        //         pokemons:typeFilter
-        //     }   
-
-        //   case 'FILTER_TYPE':
-        //      const status = state.allPokemons
-        //     const typeFilter = status.filter(t=> t.types[0].name ?  t.types[0].name === action.payload : t.types === action.payload)
-
-        //     return {
-        //         ...state,
-        //         pokemons:typeFilter
-        //     }   
-
         case 'FILTER_TYPE':
             const status = state.allPokemons
             const typeFilter = status.filter(t => t.TypePrimary === action.payload)
-           
 
+           
             return {
+                loading: false,
                 ...state,
-                pokemons: action.payload === 'All' ? state.allPokemons :  typeFilter
+                pokemons: action.payload === 'All' ? state.allPokemons :  typeFilter.length ? typeFilter : [{no:'no'}]
             }
 
         case 'FILTER_TYPE2':
@@ -77,7 +78,8 @@ function rootReducer(state = initialState, action) {
             const typeFilter2 = staatus.filter(t => t.TypeSecond === action.payload)
             return {
                 ...state,
-                pokemons: action.payload === 'All' ? state.allPokemons :  typeFilter2,
+                loading: false,
+                pokemons: action.payload === 'All' ? state.allPokemons :  typeFilter2.length ? typeFilter2 : [{no:'no'}]
                 
                 
             }
@@ -86,15 +88,15 @@ function rootReducer(state = initialState, action) {
 
 
         case 'FILTER_CREATED':
-
-            const createdFilter = action.payload === 'Creado' ? state.allPokemons.filter(el => el.createdInDb) : state.allPokemons.filter(el => !el.createdInDb)
-            return {
+            const estados = state.allPokemons
+           const createdFilter = action.payload === 'Creado' ? estados.filter(el => el.createdInDb) : state.allPokemons.filter(el => !el.createdInDb)
+          
+           return {
                 ...state,
-                pokemons: action.payload === 'All' ? state.allPokemons : createdFilter
+                loading: false,
+                pokemons: action.payload === 'All' ? state.allPokemons : createdFilter.length ? createdFilter : [{no:'no'}]
 
-            }
-
-
+            } 
 
         case 'ORDER_BY_NAME':
             let sortedArr = action.payload === 'asc' ?
@@ -125,8 +127,9 @@ function rootReducer(state = initialState, action) {
 
 
         case 'ORDER_BY_ATTACK':
+            const stats = state.allPokemons
             let SortedArr = action.payload === 'Attack -' ?
-                state.pokemons.sort(function (a, b) {
+            stats.sort(function (a, b) {
                     if (a.attack > b.attack) {
                         return 1
                     }
@@ -136,7 +139,7 @@ function rootReducer(state = initialState, action) {
                     return 0
 
                 }) :
-                state.pokemons.sort(function (a, b) {
+                stats.sort(function (a, b) {
                     if (a.attack > b.attack) {
                         return -1
                     }
@@ -148,7 +151,8 @@ function rootReducer(state = initialState, action) {
                 })
             return {
                 ...state,
-                pokemons: SortedArr
+                pokemons: SortedArr 
+
             }
 
 

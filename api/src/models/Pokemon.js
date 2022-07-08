@@ -38,7 +38,10 @@ module.exports = (sequelize) => {
 
     },
     image:{
-      type:DataTypes.STRING
+      type:DataTypes.STRING,
+      validate:{
+        isUrl:true
+      }
     },
     createdInDb:{
       type:DataTypes.BOOLEAN,

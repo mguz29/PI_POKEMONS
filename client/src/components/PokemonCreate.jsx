@@ -14,7 +14,7 @@ export default function PokemonCreate() {
     const pokemonsAll = useSelector((state) => state.pokemons).map(e => e.name);
 
     const [input, setInput] = useState({
-        name: "",
+        name:"",
         height: 0,
         weight: 0,
         hp: 1,
@@ -22,7 +22,7 @@ export default function PokemonCreate() {
         defense: 1,
         speed: 1,
         image: "",
-        TypePrimary: "",
+        TypePrimary: "fire",
         TypeSecond: null,
 
     })
@@ -91,16 +91,13 @@ export default function PokemonCreate() {
         );
     };
 
-
-
-
      async function  handleSubmit(e) {
         e.preventDefault();
         if (Object.keys(errors).length===0 && input.name)
         dispatch(postPokemon(input))
         alert('Personaje Creado')
         setInput({
-            name: "",
+            name:"",
             height: 0,
             weight:0,
             hp: 1,
@@ -112,7 +109,7 @@ export default function PokemonCreate() {
             TypeSecond: null,
         })
 
-        history.push('/home')
+        history.push('/Home')
         console.log(input)
     }
 
@@ -250,9 +247,9 @@ export default function PokemonCreate() {
                 <div className={style.typeprimary}>
                     <label>TypePrimary: </label>
                     <select  className={style.inputTypePrimary} onChange={e => handleSelect(e)}>
-
+                    <option hidden>Primary Type</option>
                         {Types.map((typ) => (
-                            <option value={typ.name}>{typ.name}</option>
+                            <option key={typ.name} value={typ.name}>{typ.name}</option>
                         ))}
                     </select>
                 </div>
@@ -262,9 +259,9 @@ export default function PokemonCreate() {
                 <div className={style.typesecond}>
                     <label>TypeSecond: </label>
                     <select className={style.inputTypePrimary} onChange={e => handleSelect2(e)}>
-
+                    <option hidden>Second Type</option>
                         {Types.map((typ) => (
-                            <option value={typ.name}>{typ.name}</option>
+                            <option key={typ.id} value={typ.name}>{typ.name}</option>
                         ))}
                     </select>
                 </div>

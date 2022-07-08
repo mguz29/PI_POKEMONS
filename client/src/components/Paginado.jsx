@@ -4,8 +4,8 @@ import '../Styles/Paginado.css'
 
 export default function Paginado ({pokemonsPerPage, AllPokemons, paginado}){ // declaro mi paginado y me traigo propiedades del componente Home
     const pageNumbers = [] // declaro un arreglo vacio
-     for (let i = 1; i < Math.ceil(AllPokemons/pokemonsPerPage); i++ ){
-   // for (let i = 1; i < 5; i++ ){  cantidad de paginas que tendra mi home - recorro un arreglo en el que tomo el numero entero que obtengo por resultado de dividir todos los personajes * los personajes por pagina
+     //for (let i = 1; i < Math.ceil(AllPokemons/pokemonsPerPage); i++ ){
+    for (let i = 1; i < 5; i++ ){  //cantidad de paginas que tendra mi home - recorro un arreglo en el que tomo el numero entero que obtengo por resultado de dividir todos los personajes * los personajes por pagina
             pageNumbers.push(i) // i+1 para que arranque en 1 y no en cero - pusheo ese numero entero en el arreglo vacio
         }
     return(
