@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getDeatil, SetPokemonDetail } from '../actions/index'
+import { getDeatil} from '../actions/index'
 import { Link, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import '../Styles/PokemonDetail.css'
@@ -21,7 +21,6 @@ export default function Detail() {
 
   useEffect(() => {
     dispatch(getDeatil(id));
-    return () => dispatch(SetPokemonDetail())
   }, [dispatch])
 
 

@@ -33,14 +33,6 @@ export function getDeatil(id) {
 }
 
 
-export function SetPokemonDetail() {
-    return{
-        type:'SET_DETAIL_POKEMON',
-        payload:[]
-    }
-    
-} 
-
 
 export function filterCreated(payload) {
     return {
