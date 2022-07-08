@@ -1,12 +1,9 @@
 .home-container{
-    /* background-image: url('https://pi-dogs-brown.vercel.app/static/media/FONDO.efc82cc9.png'); */
+    
       background-image:url('../images/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA.jpg') ; 
      background-size: 100% 100%; 
 
-    /* background-image:url("https://previews.123rf.com/images/tigatelu/tigatelu1701/tigatelu170100016/69363160-ilustraci%C3%B3n-de-conjunto-de-divertidos-perros-de-dibujos-animados.jpg") ; */
-    /* background-image : url("https://st2.depositphotos.com/3213441/12022/v/600/depositphotos_120226648-stock-illustration-pokemon-go-pokeball-seamless-texture.jpg") ; */
- }
-/* crear clase body que envuelva el componente */
+}
  
  .Cardshijo{
      display: grid;
