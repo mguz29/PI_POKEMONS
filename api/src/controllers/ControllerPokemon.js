@@ -114,7 +114,7 @@ const pokemonID = async (req, res, next) => {
                     TypePrimary: pokedb.types[0]?.name,
                     TypeSecond: pokedb.types[1]?.name,
                 }];
-            console.log(pokemonDb, 'pokemon creado')
+
         }
         if(!pokedb){
             let pokeApi = await pokemonIDd(id)
