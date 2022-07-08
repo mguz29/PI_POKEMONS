@@ -70,8 +70,8 @@ const pokemonIDd = async (id) => {
             const pokemon = [{
                 id: response.id,
                 name: response.name,
-                heigth: response.weight,
-                weigth: response.weight,
+                height: response.weight,
+                weight: response.weight,
                 hp: response.stats[0].base_stat,
                 attack: response.stats[1].base_stat,
                 defense: response.stats[2].base_stat,

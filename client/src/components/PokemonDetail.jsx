@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { getDeatil} from '../actions/index'
+import { getDeatil, SetPokemonDetail } from '../actions/index'
 import { Link, useParams } from 'react-router-dom';
 import { useEffect } from 'react';
 import '../Styles/PokemonDetail.css'
@@ -21,7 +21,9 @@ export default function Detail() {
 
   useEffect(() => {
     dispatch(getDeatil(id));
-  }, [dispatch, id])
+    return () => dispatch(SetPokemonDetail())
+  }, [])
+
 
 
   return (
@@ -29,7 +31,7 @@ export default function Detail() {
 
       <nav className='nav'>
         < Link to='/Home'>
-          <button  className='Button'>Volver</button>
+          <button className='Button'>Volver</button>
         </Link>
         <Link to='/Home'>
           <img src={image} className="images" />
