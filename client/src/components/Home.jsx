@@ -45,22 +45,32 @@ export default function Home() {
 
     function handleSort(e) {
         e.preventDefault();
-        dispatch(orderByName(e.target.value))
-        setCurrentPage(1);
-        setOrden(`Ordenado ${e.target.value}`)
+        if (e.target.value !== 'All') {
+             dispatch(orderByName(e.target.value))
+            console.log(e.target.value)
+            setCurrentPage(1);
+            setOrden(`Ordenado ${e.target.value}`)
+        }else{
+            dispatch(getPokemons())
+            setCurrentPage(1)
+            setOrden(e.target.value)
+        }
+       
     }
 
     function handleSortAttack(e) {
         e.preventDefault();
+        if (e.target.value !== 'All') {
         dispatch(orderByAttack(e.target.value))
-        setAttack(`Ordenado ${e.target.value}`)
         setCurrentPage(1);
+        setAttack(`Ordenado ${e.target.value}`)
+    }else{
+        dispatch(getPokemons())
+        setCurrentPage(1)
+        setOrden(e.target.value)
     }
-
-    // function handleClick(e) {
-    //     e.preventDefault()
-    //     dispatch(getPokemons())      
-    // }
+        
+    }
 
     function handleFilterCreated(e) {
         dispatch(filterCreated(e.target.value))
@@ -87,6 +97,7 @@ export default function Home() {
 
                     <select className="ordenNombre" onChange={e => handleSort(e)} >
                         <option hidden>Ordenar por Nombre</option>
+                        <option value='All'>All</option>
                         <option value='asc'>A-Z</option>
                         <option value='desc'>Z-A</option>
                     </select>
