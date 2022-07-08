@@ -121,9 +121,9 @@ function rootReducer(state = initialState, action) {
 
 
         case 'ORDER_BY_ATTACK':
-            const stats = state.allPokemons
+            
             let SortedArr = action.payload === 'Attack -' ?
-            stats.sort(function (a, b) {
+            state.pokemons.sort(function (a, b) {
                     if (a.attack > b.attack) {
                         return 1
                     }
@@ -133,7 +133,7 @@ function rootReducer(state = initialState, action) {
                     return 0
 
                 }) :
-                stats.sort(function (a, b) {
+                state.pokemons.sort(function (a, b) {
                     if (a.attack > b.attack) {
                         return -1
                     }

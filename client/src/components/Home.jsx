@@ -18,7 +18,7 @@ export default function Home() {
     console.log(AllPokemons)
 
     const Types = useSelector((state) => state.types)
-  
+
     const [attack, setAttack] = useState('')
     const [order, setOrden] = useState('')
 
@@ -46,30 +46,30 @@ export default function Home() {
     function handleSort(e) {
         e.preventDefault();
         if (e.target.value !== 'All') {
-             dispatch(orderByName(e.target.value))
+            dispatch(orderByName(e.target.value))
             console.log(e.target.value)
             setCurrentPage(1);
             setOrden(`Ordenado ${e.target.value}`)
-        }else{
+        } else {
             dispatch(getPokemons())
             setCurrentPage(1)
             setOrden(e.target.value)
         }
-       
+
     }
 
     function handleSortAttack(e) {
         e.preventDefault();
         if (e.target.value !== 'All') {
-        dispatch(orderByAttack(e.target.value))
-        setCurrentPage(1);
-        setAttack(`Ordenado ${e.target.value}`)
-    }else{
-        dispatch(getPokemons())
-        setCurrentPage(1)
-        setOrden(e.target.value)
-    }
-        
+            dispatch(orderByAttack(e.target.value))
+            setCurrentPage(1);
+            setAttack(`Ordenado ${e.target.value}`)
+        } else {
+            dispatch(getPokemons())
+            setCurrentPage(1)
+            setOrden(e.target.value)
+        }
+
     }
 
     function handleFilterCreated(e) {
@@ -140,7 +140,7 @@ export default function Home() {
                             //AllPokemons[0] !== 'no' ?
                             // AllPokemons.length !== 0 ?
                             // AllPokemons[0] !== 'no' ? 
-                             AllPokemons.length !== 0 ? AllPokemons[0]?.no ? <Errores></Errores> :
+                            AllPokemons.length !== 0 ? AllPokemons[0]?.no ? <Errores></Errores> :
                                 currentPokemons?.map((el) => {
                                     console.log(currentPokemons)
                                     return (
@@ -159,10 +159,10 @@ export default function Home() {
                                         </div>
                                     )
                                 })//: <Loading setLoading={setLoading} /> 
-                               : <Loading setLoading={setLoading} /> 
-                        //   : AllPokemons[0]?.no ?  'No se econtro nada'
+                                : <Loading setLoading={setLoading} />
+                            //   : AllPokemons[0]?.no ?  'No se econtro nada'
                         }
-                          
+
                     </div>
                 </div>
 

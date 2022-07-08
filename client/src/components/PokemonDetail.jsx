@@ -21,7 +21,7 @@ export default function Detail() {
 
   useEffect(() => {
     dispatch(getDeatil(id));
-  }, [dispatch])
+  }, [dispatch, id])
 
 
   return (
