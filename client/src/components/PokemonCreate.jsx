@@ -14,7 +14,7 @@ export default function PokemonCreate() {
     const pokemonsAll = useSelector((state) => state.pokemons).map(e => e.name);
 
     const [input, setInput] = useState({
-        name:"",
+        name: "",
         height: 0,
         weight: 0,
         hp: 1,
@@ -91,15 +91,15 @@ export default function PokemonCreate() {
         );
     };
 
-     async function  handleSubmit(e) {
+    async function handleSubmit(e) {
         e.preventDefault();
-        if (Object.keys(errors).length===0 && input.name)
-        dispatch(postPokemon(input))
+        if (Object.keys(errors).length === 0 && input.name)
+            dispatch(postPokemon(input))
         alert('Personaje Creado')
         setInput({
-            name:"",
+            name: "",
             height: 0,
-            weight:0,
+            weight: 0,
             hp: 1,
             attack: 1,
             defense: 1,
@@ -137,164 +137,164 @@ export default function PokemonCreate() {
 
     return (
         <div className={style.container}>
-            <nav className={style.nav}> 
+            <nav className={style.nav}>
                 <Link to='/home'>
-                     <button className={style.navBo}> Volver</button>
-                 </Link>
+                    <button className={style.navBo}> Volver</button>
+                </Link>
             </nav>
-           
-        <div className={style.formulario}>
-            <h1>Crea tu Pokemon</h1>
 
-            <form onSubmit={e => handleSubmit(e)}>
+            <div className={style.formulario}>
+                <h1>Crea tu Pokemon</h1>
 
-                <div className={style.name}>
-                    <label>Name:</label>
-                    <input
-                    className={style.inputname}
-                        type="text"
-                        value={input.name}
-                        name="name"
-                        onChange={e => handleChange(e)}
-                    />
-                    {errors.name && <p className="error">{errors.name}</p>}
-                </div>
-                <div className={style.alturapeso}>
-                    <div className={style.height}>
-                        <label>Heigth:</label>
+                <form onSubmit={e => handleSubmit(e)}>
+
+                    <div className={style.name}>
+                        <label>Name:</label>
                         <input
-                        className={style.inputheight}
+                            className={style.inputname}
                             type="text"
-                            value={input.height}
-                            name="height"
+                            value={input.name}
+                            name="name"
                             onChange={e => handleChange(e)}
                         />
-                        {errors.height && <p className="error">{errors.height}</p>}
+                        {errors.name && <p className="error">{errors.name}</p>}
+                    </div>
+                    <div className={style.alturapeso}>
+                        <div className={style.height}>
+                            <label>Heigth:</label>
+                            <input
+                                className={style.inputheight}
+                                type="text"
+                                value={input.height}
+                                name="height"
+                                onChange={e => handleChange(e)}
+                            />
+                            {errors.height && <p className="error">{errors.height}</p>}
+                        </div>
+
+
+                        <div className={style.weight}>
+                            <label>Weight:</label>
+                            <input
+                                className={style.inputweight}
+                                type="text"
+                                value={input.weight}
+                                name="weight"
+                                onChange={e => handleChange(e)}
+                            />
+                            {errors.weight && <p className="error">{errors.weight}</p>}
+
+                        </div>
                     </div>
 
+                    <div className={style.hpspeed}>
+                        <div className={style.hp}>
+                            <label>Hp:</label>
+                            <input
+                                type="range"
+                                value={input.hp}
+                                name="hp"
+                                min={1}
+                                max={255}
+                                onChange={e => handleChange(e)}
+                            />
+                            {input.hp}
+                        </div>
 
-                    <div className={style.weight}>
-                        <label>Weight:</label>
+                        <div className={style.speed}>
+                            <label>Speed:</label>
+                            <input
+                                type="range"
+                                value={input.speed}
+                                name="speed"
+                                min={5}
+                                max={200}
+                                onChange={e => handleChange(e)}
+                            />
+                            {input.speed}
+                        </div>
+                    </div>
+
+                    <div className={style.defenseatack}>
+                        <div className={style.defense}>
+                            <label>Defense:</label>
+                            <input className="inputdefensa"
+                                type="range"
+                                value={input.defense}
+                                name="defense"
+                                min={5}
+                                max={230}
+                                onChange={e => handleChange(e)}
+                            />
+                            {input.defense}
+                        </div>
+
+                        <div className={style.attack}>
+                            <label>Attack:</label>
+                            <input
+                                type="range"
+                                value={input.attack}
+                                name="attack"
+                                min={5}
+                                max={210}
+                                onChange={e => handleChange(e)}
+                            />
+                            {input.attack}
+                        </div>
+                    </div>
+
+                    <div className={style.types}>
+                        <div className={style.typeprimary}>
+                            <label>TypePrimary: </label>
+                            <select className={style.inputTypePrimary} onChange={e => handleSelect(e)}>
+                                <option hidden>Primary Type</option>
+                                {Types.map((typ) => (
+                                    <option key={typ.name} value={typ.name}>{typ.name}</option>
+                                ))}
+                            </select>
+                        </div>
+
+
+
+                        <div className={style.typesecond}>
+                            <label>TypeSecond: </label>
+                            <select className={style.inputTypePrimary} onChange={e => handleSelect2(e)}>
+                                <option hidden>Second Type</option>
+                                {Types.map((typ) => (
+                                    <option key={typ.id} value={typ.name}>{typ.name}</option>
+                                ))}
+                            </select>
+                        </div>
+                    </div>
+
+                    <div className={style.imagessss}>
+                        <label>Image:</label>
                         <input
-                         className={style.inputweight}
+                            className={style.inputTypePrimary}
                             type="text"
-                            value={input.weight}
-                            name="weight"
+                            value={input.image}
+                            name="image"
                             onChange={e => handleChange(e)}
                         />
-                        {errors.weight && <p className="error">{errors.weight}</p>}
-
+                        {errors.image && <p className="error">{errors.image}</p>}
                     </div>
-                </div>
 
-                <div className={style.hpspeed}>
-                <div className={style.hp}>
-                    <label>Hp:</label>
-                    <input
-                        type="range"
-                        value={input.hp}
-                        name="hp"
-                        min={1}
-                        max={255}
-                        onChange={e => handleChange(e)}
-                    />
-                    {input.hp}
-                </div>
+                    {/* <ul><li> {input.types.map(el=>el+" ,")} </li></ul> */}
 
-                <div className={style.speed}>
-                    <label>Speed:</label>
-                    <input
-                        type="range"
-                        value={input.speed}
-                        name="speed"
-                        min={5}
-                        max={200}
-                        onChange={e => handleChange(e)}
-                    />
-                    {input.speed}
-                </div>
-                </div>
+                    <button className={style.iboton} type="submit" disabled={
+                        !input.name || errors.name || errors.height || errors.weight || errors.image
+                            ? true
+                            : false
+                    }>Crear Pokemon</button>
+                    {msg.length > 0 && (
+                        <div className="mensaje">
+                            <p>{msg}</p>
+                            <Link to="/home">Go back to Home</Link>
+                        </div>
+                    )}
 
-                <div className={style.defenseatack}>
-                <div className={style.defense}>
-                    <label>Defense:</label>
-                    <input className="inputdefensa"
-                        type="range"
-                        value={input.defense}
-                        name="defense"
-                        min={5}
-                        max={230}
-                        onChange={e => handleChange(e)}
-                    />
-                    {input.defense}
-                </div>
-
-                <div className={style.attack}>
-                    <label>Attack:</label>
-                    <input
-                        type="range"
-                        value={input.attack}
-                        name="attack"
-                        min={5}
-                        max={210}
-                        onChange={e => handleChange(e)}
-                    />
-                    {input.attack}
-                </div>
-                </div>
-
-            <div className={style.types}>
-                <div className={style.typeprimary}>
-                    <label>TypePrimary: </label>
-                    <select  className={style.inputTypePrimary} onChange={e => handleSelect(e)}>
-                    <option hidden>Primary Type</option>
-                        {Types.map((typ) => (
-                            <option key={typ.name} value={typ.name}>{typ.name}</option>
-                        ))}
-                    </select>
-                </div>
-
-
-
-                <div className={style.typesecond}>
-                    <label>TypeSecond: </label>
-                    <select className={style.inputTypePrimary} onChange={e => handleSelect2(e)}>
-                    <option hidden>Second Type</option>
-                        {Types.map((typ) => (
-                            <option key={typ.id} value={typ.name}>{typ.name}</option>
-                        ))}
-                    </select>
-                </div>
-                </div>
-
-                <div className={style.imagessss}>
-                    <label>Image:</label>
-                    <input
-                    className={style.inputTypePrimary}
-                        type="text"
-                        value={input.image}
-                        name="image"
-                        onChange={e => handleChange(e)}
-                    />
-                    {errors.image && <p className="error">{errors.image}</p>}
-                </div>
-
-                {/* <ul><li> {input.types.map(el=>el+" ,")} </li></ul> */}
-
-                <button className={style.iboton} type="submit" disabled={
-            !input.name || errors.name || errors.height || errors.weight || errors.image
-              ? true
-              : false
-          }>Crear Pokemon</button>
-          {msg.length > 0 && (
-          <div className="mensaje">
-            <p>{msg}</p>
-            <Link to="/home">Go back to Home</Link>
-          </div>
-        )}
-
-            </form>
-        </div>
+                </form>
+            </div>
 
         </div>
     )

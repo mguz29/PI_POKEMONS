@@ -1,7 +1,7 @@
 import React from 'react';
 import "../Styles/Loading.css"
 
-export default function Loading({setLoading}) {
+export default function Loading({ setLoading }) {
 
     return (
         <div>
