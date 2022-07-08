@@ -46,8 +46,8 @@ export default function Detail() {
               <div className='texto'>
                 <h2 className='Tarjetita'>ID: {pokemon[0].id}</h2>
                 <h2 className='Tarjetita'>Name: {pokemon[0].name}</h2>
-                <h2 className='Tarjetita'>Heigth: {pokemon[0].heigth}</h2>
-                <h2 className='Tarjetita'>Weigth: {pokemon[0].weigth}</h2>
+                <h2 className='Tarjetita'>Heigth: {pokemon[0].height}</h2>
+                <h2 className='Tarjetita'>Weigth: {pokemon[0].weight}</h2>
                 <h2 className='Tarjetita'>Hp: {pokemon[0].hp}</h2>
                 <h2 className='Tarjetita'>Attack: {pokemon[0].attack}</h2>
                 <h2 className='Tarjetita'>Defense: {pokemon[0].defense}</h2>
